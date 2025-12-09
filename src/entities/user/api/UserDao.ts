@@ -8,9 +8,12 @@ export default class UserDao {
             () => {
                 if(login == "user" && password == "123") {
                     resolve({
-                    name: "User", 
-                    password: "123", 
-                    email: "user@i.ua"
+                    name: "Пацік на моціке", 
+                    email: "user@i.ua",
+                    login: "user",
+                    imageUrl: "/public/img/gosl.png",
+                    address: "Одеса, Садова 3",
+                    dob: "08 грудня 2025"
 
                     });
                 }

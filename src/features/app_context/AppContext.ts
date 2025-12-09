@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import type { UserType } from "../../entities/user/api/model/UserType";
+import type App from "../../app/ui/App";
 
 type AppContextType = {
     user: UserType | null;

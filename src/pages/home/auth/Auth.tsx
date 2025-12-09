@@ -39,7 +39,6 @@ function AuthForm() {
     <>
       <h1 className="display-4 text-center">Auth</h1>
 
-      {/* Обёртка с relative для абсолютного позиционирования гифки */}
       <div className="position-relative row mt-4">
         <div className="input-group mb-3">
           <span className="input-group-text" id="login-addon">
@@ -71,14 +70,12 @@ function AuthForm() {
           />
         </div>
 
-        {/* Кнопка всегда на месте */}
         <SiteButton
           text="Login"
           buttonType={isFormValid ? ButtonTypes.Red : ButtonTypes.White}
           action={onAuthClick}
         />
 
-        {/* Гифка поверх формы, не сдвигает кнопку */}
         {isLoading && (
           <div
             className="position-absolute top-50 start-50 translate-middle"
@@ -108,14 +105,68 @@ function Profile() {
   return (
     <>
       <h1 className="display-4 text-center">Profile</h1>
-      <p>
-        {user?.name} ({user?.email})
-      </p>
-      <SiteButton
-        buttonType={ButtonTypes.Red}
-        text="Logout"
-        action={() => setUser(null)}
-      />
+      <div className="row">
+        <div className="col col-6 offset-3 text-center p-3">
+          <div className="row">
+            <div className="col col-4 offset-4">
+              <img
+                src={user?.imageUrl}
+                alt={user?.login}
+                className="w-100 rounded-circle"
+              ></img>
+            </div>
+            <h2 className="display-5">{user?.name}</h2>
+            <div className="row text-start">
+              <div className="col col-3 offset-1"> Ім'я:</div>
+              <div className="col col-5">
+                <div className="col col-1">
+                  <i className="bi bi-pencil"></i>
+                </div>
+                <p>{user?.name}</p>
+              </div>
+            </div>
+            <div className="row text-start">
+              <div className="col col-3 offset-1"> Email:</div>
+              <div className="col col-5">
+                <div className="col col-1">
+                  <i className="bi bi-pencil"></i>
+                </div>
+                <p>{user?.email}</p>
+              </div>
+            </div>
+            <div className="row text-start">
+              <div className="col col-3 offset-1"> Адреса:</div>
+              <div className="col col-5">
+                <div className="col col-1">
+                  <i className="bi bi-pencil"></i>
+                </div>
+                <p>{user?.address}</p>
+              </div>
+              <div className="row text-start">
+                <div className="col col-3 offset-1"> Дата народження:</div>
+                <div className="col col-5">
+                  <div className="col col-1">
+                    <i className="bi bi-pencil"></i>
+                  </div>
+                  <p>{user?.dob}</p>
+                </div>
+              </div>
+
+              <div className="row mt-5">
+                <div className="col col-4 offset-4">
+                  <div className="row">
+                    <SiteButton
+                      buttonType={ButtonTypes.White}
+                      text="Вихід"
+                      action={() => setUser(null)}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

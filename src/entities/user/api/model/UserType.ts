@@ -1,7 +1,10 @@
 type UserType = {
-    name: string;
-    password: string;
-    email: string;
+    name: string,
+    email: string,
+    login: string,
+    imageUrl: string,
+    address: string,
+    dob: string,
 };
 
 export type { UserType };
